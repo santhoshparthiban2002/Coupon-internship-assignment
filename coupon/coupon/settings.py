@@ -86,9 +86,11 @@ DATABASES = {
          'NAME': 'coupon',
          'ENFORCE_SCHEMA': True,
            'CLIENT': {
-            'host': 'mongodb+srv://coupon:coupon123@cluster0.s9mjenp.mongodb.net/?retryWrites=true&w=majority',
+            'host': 'cluster0.s9mjenp.mongodb.net',
             'username': 'coupon',
-            'password': 'coupon123'  
+            'password': 'coupon123',
+            'authSource': 'admin',
+            'authMechanism': 'SCRAM-SHA-1',
         }
      }
  }
