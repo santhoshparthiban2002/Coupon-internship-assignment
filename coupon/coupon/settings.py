@@ -84,13 +84,13 @@ DATABASES = {
      'default': {
          'ENGINE': 'djongo',
          'NAME': 'coupon',
-         'ENFORCE_SCHEMA': True,
+         'ENFORCE_SCHEMA': False,
            'CLIENT': {
-            'host': 'cluster0.s9mjenp.mongodb.net',
+            'host': 'mongodb+srv://coupon:coupon123@cluster0.s9mjenp.mongodb.net/?retryWrites=true&w=majority',
             'username': 'coupon',
             'password': 'coupon123',
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM-SHA-1',
+
+        
         }
      }
  }
@@ -111,4 +111,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+
