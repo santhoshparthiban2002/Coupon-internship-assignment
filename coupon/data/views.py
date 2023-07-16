@@ -4,6 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from .models import Coupon
 from .serializers import CouponSerializer
+from django.utils import timezone
 
 @csrf_exempt
 def coupon_list(request):
@@ -38,3 +39,23 @@ def coupon_detail(request, pk):
     elif request.method == 'DELETE':
         coupon.delete()
         return JsonResponse({'message': 'Coupon deleted successfully'}, status=204)
+
+
+
+@csrf_exempt
+def coupon_verify(request):
+    if request.method == 'POST':
+        try:
+            data = JSONParser().parse(request)
+            coupon = Coupon.objects.get(couponCode=data['couponCode'])
+            
+            if coupon.used:
+                return JsonResponse({"error": "Coupon already used"}, status=400)
+            if coupon.expirationDate < timezone.now().date():
+                return JsonResponse({"error": "Coupon is expired"}, status=400)
+            
+            serializer = CouponSerializer(coupon)
+            return JsonResponse(serializer.data, safe=False)
+        except Coupon.DoesNotExist:
+            return JsonResponse({"error": "Invalid couponCode"}, status=400)
+
