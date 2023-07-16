@@ -84,10 +84,11 @@ DATABASES = {
      'default': {
          'ENGINE': 'djongo',
          'NAME': 'coupon',
+         'ENFORCE_SCHEMA': True,
            'CLIENT': {
             'host': 'mongodb+srv://coupon:coupon123@cluster0.s9mjenp.mongodb.net/?retryWrites=true&w=majority',
             'username': 'coupon',
-            'password': 'coupon123',
+            'password': 'coupon123'  
         }
      }
  }
