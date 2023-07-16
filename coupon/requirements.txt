@@ -5,4 +5,4 @@ django-cors-headers
 uuid
 gunicorn 
 pymongo==3.12.3
-pymongo[snappy,gssapi,srv,tls]
+dnspython
