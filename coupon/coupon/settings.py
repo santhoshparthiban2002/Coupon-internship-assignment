@@ -74,17 +74,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'coupon.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -109,7 +98,6 @@ DATABASES = {
      'default': {
          'ENGINE': 'djongo',
          'NAME': 'coupon',
-         
            'CLIENT': {
             'host': 'mongodb+srv://coupon:coupon123@cluster0.s9mjenp.mongodb.net/?retryWrites=true&w=majority',
             'username': 'coupon',
