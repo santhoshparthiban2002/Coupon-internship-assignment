@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from data.views import CouponListCreateView, CouponRetrieveUpdateDestroyView
+from data.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('coupons/', CouponListCreateView.as_view(), name='coupon-list-create'),
-    path('coupons/<int:pk>/', CouponRetrieveUpdateDestroyView.as_view(), name='coupon-retrieve-update-destroy'),
+    path('coupons/', coupon_list, name='coupon-list'),
+    path('coupons/<int:pk>/', coupon_detail, name='coupon-detail'),
 ]
+
